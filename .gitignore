@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# DDEV
+.ddev/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Tests
+test/screenshots/
+
+# IDE
+.idea/
+.vscode/
+
+# Database
+*.db
+*.sqlite
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.temp

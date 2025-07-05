@@ -1,0 +1,17 @@
+INSTALACIÓN RÁPIDA - Galleta China de la Fortuna
+================================================
+
+1. COPIAR ARCHIVOS:
+   - Copiar toda esta carpeta a: C:\xampp\htdocs\galleta-fortuna
+
+2. INICIAR SERVICIOS EN XAMPP:
+   - Abrir XAMPP Control Panel
+   - Iniciar Apache (solo Apache, NO necesitas MySQL)
+
+3. ABRIR LA APLICACIÓN:
+   http://localhost/galleta-fortuna
+
+¡LISTO! Ya puedes registrarte y empezar a usar la aplicación.
+
+LA BASE DE DATOS SE CREA AUTOMÁTICAMENTE AL PRIMER USO.
+NO NECESITAS CONFIGURAR NADA MÁS.

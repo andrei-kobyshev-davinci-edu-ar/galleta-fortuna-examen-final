@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="galletaFortunaApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleta China de la Fortuna</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🥠 Galleta China de la Fortuna</h1>
+            <p class="subtitulo">¿Necesitas de un sabio consejo o de un levantón? ¡Obtén la sabiduría de la galleta china de la fortuna, eso sí, ¡sin las calorías!</p>
+        </header>
+        
+        <div ng-view></div>
+    </div>
+    
+    <script src="js/app.js"></script>
+    <script src="js/services/authService.js"></script>
+    <script src="js/services/httpService.js"></script>
+    <script src="js/controllers/authController.js"></script>
+    <script src="js/controllers/fortunaController.js"></script>
+    <script src="js/controllers/adminController.js"></script>
+    <script src="js/services/fortunaService.js"></script>
+    <script src="js/services/adminService.js"></script>
+    <script src="js/services/sharedService.js"></script>
+</body>
+</html>

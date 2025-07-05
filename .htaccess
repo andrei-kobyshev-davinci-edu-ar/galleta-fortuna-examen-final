@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Redirigir las peticiones /api/* al backend
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^api/(.*)$ backend/public/index.php [L]
+
+# Servir archivos estáticos directamente si existen
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Para AngularJS - redirigir todo lo demás a index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.html [L]

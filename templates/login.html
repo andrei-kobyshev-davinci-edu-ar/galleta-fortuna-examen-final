@@ -1,0 +1,37 @@
+<div class="login-container">
+    <div class="card">
+        <h2>{{ modoRegistro ? 'Registro' : 'Iniciar Sesión' }}</h2>
+        
+        <div ng-if="mensaje" class="mensaje-exito">{{ mensaje }}</div>
+        <div ng-if="error" class="mensaje-error">{{ error }}</div>
+        
+        <form ng-submit="modoRegistro ? registro() : login()">
+            <div class="form-group" ng-if="modoRegistro">
+                <label>Nombre:</label>
+                <input type="text" ng-model="usuario.nombre" required ng-if="modoRegistro">
+            </div>
+            
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" ng-model="usuario.email" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Contraseña:</label>
+                <input type="password" ng-model="usuario.password" required>
+            </div>
+            
+            <button type="submit" class="btn-principal">
+                {{ modoRegistro ? 'Registrarse' : 'Iniciar Sesión' }}
+            </button>
+        </form>
+        
+        <div class="cambiar-modo">
+            <span ng-if="!modoRegistro">¿No tienes cuenta?</span>
+            <span ng-if="modoRegistro">¿Ya tienes cuenta?</span>
+            <a href="" ng-click="cambiarModo(); $event.preventDefault()">
+                {{ modoRegistro ? 'Iniciar Sesión' : 'Regístrate aquí' }}
+            </a>
+        </div>
+    </div>
+</div>

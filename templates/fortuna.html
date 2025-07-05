@@ -1,0 +1,21 @@
+<div class="fortuna-container" ng-init="fortunaMensaje = fortunaMensaje || 'Cargando tu fortuna...'">
+    <div class="fortuna-contenido">
+        <div class="galleta-abierta">
+            <img src="img/galleta-abierta.svg" alt="Galleta Abierta">
+        </div>
+        
+        <div class="mensaje-fortuna">
+            <h3>Tu Fortuna:</h3>
+            <p class="texto-fortuna">{{ fortunaMensaje }}</p>
+        </div>
+        
+        <div class="acciones">
+            <button ng-click="nuevaGalleta()" class="btn-principal">
+                🥠 Abrir Otra Galleta
+            </button>
+            <button ng-click="cerrarSesion()" class="btn-secundario">
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+</div>

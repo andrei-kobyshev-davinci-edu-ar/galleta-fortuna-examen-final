@@ -1,0 +1,13 @@
+{
+  "name": "galleta-fortuna-tests",
+  "version": "1.0.0",
+  "description": "Tests para Galleta Fortuna con Playwright",
+  "main": "test-completo.js",
+  "scripts": {
+    "test": "node test-completo.js",
+    "test:headless": "HEADLESS=true node test-completo.js"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}

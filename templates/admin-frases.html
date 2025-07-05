@@ -1,0 +1,67 @@
+<div class="admin-container">
+    <div class="admin-header">
+        <h2>Gestión de Frases</h2>
+        <div class="admin-actions">
+            <button ng-click="volver()" class="btn-secundario">Volver</button>
+            <button ng-click="cerrarSesion()" class="btn-secundario">Cerrar Sesión</button>
+        </div>
+    </div>
+    
+    <div class="admin-content">
+        <div class="agregar-frase-form">
+            <h3>Agregar Nueva Frase</h3>
+            
+            <div ng-if="mensaje" class="mensaje-exito">{{ mensaje }}</div>
+            <div ng-if="error" class="mensaje-error">{{ error }}</div>
+            
+            <form ng-submit="agregarFrase()">
+                <div class="form-group">
+                    <label>Nueva frase de la fortuna:</label>
+                    <textarea ng-model="nuevaFrase" 
+                              placeholder="Escribe aquí la nueva frase..." 
+                              rows="3"
+                              required></textarea>
+                </div>
+                <button type="submit" class="btn-principal">Agregar Frase</button>
+            </form>
+        </div>
+        
+        <div class="lista-frases">
+            <h3>Frases Existentes ({{ frases.length }})</h3>
+            
+            <div ng-if="cargando" class="cargando">Cargando frases...</div>
+            
+            <div ng-if="!cargando && frases.length === 0" class="sin-frases">
+                No hay frases en la base de datos.
+            </div>
+            
+            <table ng-if="!cargando && frases.length > 0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Frase</th>
+                        <th>Agregada por</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="frase in frases" ng-class="{'eliminando': frase.eliminando}">
+                        <td>{{ frase.id }}</td>
+                        <td class="frase-texto">{{ frase.mensaje }}</td>
+                        <td>{{ frase.agregado_por || 'Sistema' }}</td>
+                        <td>{{ frase.fecha_agregada || frase.fecha_creacion | date:'dd/MM/yyyy HH:mm' }}</td>
+                        <td>
+                            <button ng-click="marcarYEliminar(frase)" 
+                                    class="btn-eliminar"
+                                    ng-if="frase.agregado_por"
+                                    ng-disabled="frase.eliminando">
+                                {{ frase.eliminando ? 'Eliminando...' : 'Eliminar' }}
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

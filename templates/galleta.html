@@ -1,0 +1,19 @@
+<div class="galleta-container">
+    <div class="cerrar-sesion">
+        <button ng-click="irAdminFrases()" class="btn-admin" ng-if="esAdmin">Gestión de Frases</button>
+        <button ng-click="cerrarSesion()" class="btn-secundario">Cerrar Sesión</button>
+    </div>
+    
+    <div class="galleta-principal">
+        <div class="galleta-imagen">
+            <img src="img/galleta-fortuna.svg" alt="Galleta de la Fortuna">
+        </div>
+        
+        <div class="galleta-accion">
+            <p class="instruccion">¡Descubre lo que el destino tiene preparado para ti!</p>
+            <button ng-click="abrirGalleta()" class="btn-abrir-galleta">
+                🥠 ABRE TU GALLETA
+            </button>
+        </div>
+    </div>
+</div>
