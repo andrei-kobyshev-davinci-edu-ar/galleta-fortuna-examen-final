@@ -19,7 +19,7 @@ function($scope, $location, AuthService) {
                 $location.path('/galleta');
             })
             .catch(function(error) {
-                $scope.error = error.data.error || 'Error al iniciar sesión';
+                $scope.error = (error.data && error.data.error) || 'Error al iniciar sesión';
             });
     };
     
@@ -31,7 +31,7 @@ function($scope, $location, AuthService) {
                 $scope.usuario = {};
             })
             .catch(function(error) {
-                $scope.error = error.data.error || 'Error al registrar usuario';
+                $scope.error = (error.data && error.data.error) || 'Error al registrar usuario';
             });
     };
 }]);

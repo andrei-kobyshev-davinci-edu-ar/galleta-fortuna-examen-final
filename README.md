@@ -14,20 +14,33 @@ Aplicación web de galletas de la fortuna desarrollada con PHP (backend) y Angul
 
 1. Instalar XAMPP si aún no está instalado
 2. Iniciar los servicios de **Apache** y **MySQL** desde el panel de control de XAMPP
+3. Instalar Composer desde https://getcomposer.org/
 
 ### 2. Copiar los archivos
 
 1. Copiar toda la carpeta `galleta-fortuna` a `C:\xampp\htdocs\`
 2. La estructura debe quedar: `C:\xampp\htdocs\galleta-fortuna\`
 
-### 3. Configurar la base de datos
+### 3. Instalar dependencias de Laravel
+
+1. Abrir una terminal (cmd) como administrador
+2. Navegar a la carpeta del proyecto:
+   ```
+   cd C:\xampp\htdocs\galleta-fortuna
+   ```
+3. Instalar las dependencias:
+   ```
+   composer install
+   ```
+
+### 4. Configurar la base de datos
 
 1. Abrir phpMyAdmin: http://localhost/phpmyadmin
 2. Crear una nueva base de datos llamada `galleta_fortuna`
 3. Seleccionar la base de datos `galleta_fortuna`
 4. Importar el archivo `backend/database/schema.sql`
 
-### 4. Verificar la configuración de Apache
+### 5. Verificar la configuración de Apache
 
 Asegurarse de que el módulo `mod_rewrite` esté habilitado en Apache:
 
@@ -36,7 +49,7 @@ Asegurarse de que el módulo `mod_rewrite` esté habilitado en Apache:
 3. Quitar el `#` del inicio si está comentada
 4. Reiniciar Apache desde el panel de control de XAMPP
 
-### 5. Acceder a la aplicación
+### 6. Acceder a la aplicación
 
 Abrir el navegador y visitar: http://localhost/galleta-fortuna
 
@@ -59,31 +72,43 @@ Abrir el navegador y visitar: http://localhost/galleta-fortuna
 
 ```
 galleta-fortuna/
-├── backend/                 # API en PHP
+├── app/                     # Core de Laravel
+│   ├── Http/
+│   │   ├── Controllers/    # Controladores Laravel
+│   │   └── Middleware/     # Middleware de autenticación
+│   ├── Models/             # Modelos Eloquent
+│   └── Exceptions/         # Excepciones personalizadas
+├── backend/                 # API Laravel
 │   ├── app/
-│   │   ├── controllers/    # Controladores (Auth, Fortuna)
-│   │   └── Models/         # Modelos (Usuario, Fortuna)
-│   ├── config/             # Configuración de BD
+│   │   ├── controllers/    # Controladores de API
+│   │   └── Models/         # Modelos de dominio
 │   ├── database/           # Script SQL inicial
 │   └── public/             # Punto de entrada API
+├── bootstrap/              # Bootstrap de Laravel
+├── config/                 # Configuración de Laravel
+├── database/               # Migraciones de Laravel
+├── routes/                 # Rutas de Laravel
+├── vendor/                 # Dependencias de Composer
 ├── css/                    # Estilos
 ├── img/                    # Imágenes (SVG de galletas)
 ├── js/                     # JavaScript/AngularJS
 │   ├── controllers/        # Controladores Angular
 │   └── services/           # Servicios Angular
 ├── templates/              # Vistas HTML de Angular
+├── composer.json           # Dependencias PHP
+├── composer.lock           # Lock de dependencias
 ├── index.html              # Página principal
 └── .htaccess              # Configuración de rutas
 ```
 
 ## Características técnicas
 
-- **Backend**: PHP puro con arquitectura MVC simple
+- **Backend**: Laravel 8 Framework con arquitectura MVC
 - **Frontend**: AngularJS 1.8.2 con enrutamiento
-- **Base de datos**: MySQL con PDO
-- **Autenticación**: Sistema de tokens simple
+- **Base de datos**: MySQL con PDO y Eloquent ORM
+- **Autenticación**: Sistema de tokens con middleware personalizado
 - **API REST**: Endpoints para registro, login, obtener fortunas y gestión de frases
-- **Roles**: Sistema de roles (usuario/admin)
+- **Roles**: Sistema de roles (usuario/admin) con middleware de autorización
 - **Excepciones**: Manejo personalizado de excepciones para frases duplicadas
 - **Diseño**: Responsive, compatible con dispositivos móviles
 
@@ -167,9 +192,12 @@ Los tests verifican:
 
 ## Mejoras respecto al Parcial 2
 
+- Migración a Laravel 8 Framework como solicitado por el profesor
+- Uso de Eloquent ORM para operaciones de base de datos
+- Middleware de Laravel para autenticación y autorización
 - Migración de SQLite a MySQL con PDO
 - Implementación completa del registro de usuarios
-- Sistema de roles (usuario/admin)
+- Sistema de roles (usuario/admin) con middleware
 - Vista de administración para gestión de frases
 - Validación de frases duplicadas con excepciones personalizadas
 - Manejo centralizado de tokens en el frontend

@@ -49,7 +49,7 @@ function($scope, $location, $timeout, AdminService, AuthService) {
                 if (error.status === 409) {
                     $scope.error = 'Esta frase ya existe en la base de datos';
                 } else {
-                    $scope.error = error.data.error || 'Error al agregar la frase';
+                    $scope.error = (error.data && error.data.error) || 'Error al agregar la frase';
                 }
             });
     };
