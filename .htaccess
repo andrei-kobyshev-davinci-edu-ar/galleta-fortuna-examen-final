@@ -1,8 +1,8 @@
 RewriteEngine On
 
-# Redirigir las peticiones /api/* al backend
+# Redirigir las peticiones /api/* al Laravel public
 RewriteCond %{REQUEST_URI} ^/api/
-RewriteRule ^api/(.*)$ backend/public/index.php [L]
+RewriteRule ^api/(.*)$ public/index.php [L]
 
 # Servir archivos estáticos directamente si existen
 RewriteCond %{REQUEST_FILENAME} -f
