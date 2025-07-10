@@ -1,12 +1,14 @@
 # Galleta China de la Fortuna 🥠
 
-Aplicación web de galletas de la fortuna desarrollada con PHP (backend) y AngularJS (frontend).
+Aplicación web de galletas de la fortuna desarrollada con Laravel 8 (backend) y AngularJS (frontend) - Examen Final Programación Web 3.
 
 ## Requisitos
 
 - XAMPP (o cualquier servidor web con PHP 7.3+ y MySQL)
+- Composer (gestor de dependencias de PHP)
 - Navegador web moderno
 - PHP con PDO habilitado para MySQL
+- PHP extensions: OpenSSL, PDO, Mbstring, Tokenizer, XML, Ctype, JSON
 
 ## Instalación en XAMPP (Windows)
 
@@ -74,31 +76,33 @@ Abrir el navegador y visitar: http://localhost/galleta-fortuna
 galleta-fortuna/
 ├── app/                     # Core de Laravel
 │   ├── Http/
-│   │   ├── Controllers/    # Controladores Laravel
-│   │   └── Middleware/     # Middleware de autenticación
-│   ├── Models/             # Modelos Eloquent
+│   │   ├── Controllers/    # Controladores Laravel (Auth, Fortuna, Admin)
+│   │   └── Middleware/     # Middleware de autenticación y autorización
+│   ├── Models/             # Modelos Eloquent (Usuario, Fortuna)
 │   └── Exceptions/         # Excepciones personalizadas
-├── backend/                 # API Laravel
-│   ├── app/
-│   │   ├── controllers/    # Controladores de API
-│   │   └── Models/         # Modelos de dominio
+├── backend/                 
 │   ├── database/           # Script SQL inicial
-│   └── public/             # Punto de entrada API
+│   └── public/             # Punto de entrada API Laravel
 ├── bootstrap/              # Bootstrap de Laravel
-├── config/                 # Configuración de Laravel
+├── config/                 # Configuración de Laravel (app, database, auth, etc.)
 ├── database/               # Migraciones de Laravel
-├── routes/                 # Rutas de Laravel
-├── vendor/                 # Dependencias de Composer
+├── routes/                 # Rutas de Laravel API
+├── vendor/                 # Dependencias de Composer (no incluido en zip)
+├── storage/                # Almacenamiento Laravel (logs, cache, sessions)
+├── public/                 # Public de Laravel
+├── resources/              # Resources de Laravel
 ├── css/                    # Estilos
 ├── img/                    # Imágenes (SVG de galletas)
 ├── js/                     # JavaScript/AngularJS
 │   ├── controllers/        # Controladores Angular
 │   └── services/           # Servicios Angular
 ├── templates/              # Vistas HTML de Angular
-├── composer.json           # Dependencias PHP
+├── composer.json           # Dependencias PHP Laravel
 ├── composer.lock           # Lock de dependencias
-├── index.html              # Página principal
-└── .htaccess              # Configuración de rutas
+├── artisan                 # CLI de Laravel
+├── .env                    # Configuración de entorno
+├── index.html              # Página principal AngularJS
+└── .htaccess              # Configuración de rutas Apache
 ```
 
 ## Características técnicas
